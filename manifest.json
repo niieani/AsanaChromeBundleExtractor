@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+
+    "name": "Asana Bundle Extractor",
+    "description": "Generates a Chrome Extension that forces Asana to use a local copy of it's bundle. Use once to generate, then turn off.",
+    "version": "1.0",
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.asana.com/*"],
+            "js": [
+                "vendor/zip.js",
+                "vendor/inflate.js",
+                "vendor/deflate.js",
+                "tools/zipmodel.js",
+                "vendor/beautify.js",
+                "vendor/jquery-2.1.1.js",
+                "start.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+
+    "web_accessible_resources": [
+        "vendor/jquery-2.1.1.js",
+        "vendor/zip.js",
+        "vendor/inflate.js",
+        "vendor/deflate.js"
+    ],
+
+    "permissions": [
+        "*://*.asana.com/*",
+        "*://code.jquery.com/*",
+        "*://*.cloudfront.net/*/apps/asana/*"
+    ]
+}
