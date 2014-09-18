@@ -215,7 +215,7 @@ function zipBundle()
                         function(url){
                             console.log("Asana Bundle Extension archive: " + url);
                             var script = document.createElement('script');
-                            script.textContent = "window.location.href = " + url;
+                            script.textContent = "window.location.href = \"" + url + "\"";
                             document.getElementsByTagName("head")[0].appendChild(script);
                         });
                 }
